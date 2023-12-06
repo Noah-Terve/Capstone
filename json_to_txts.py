@@ -46,7 +46,12 @@ if __name__ == '__main__':
         fName = image["file_name"].lstrip(IMAGES_DIRECTORY).rstrip(IMAGES_EXTENSION)
 
         with open(fName + ".txt", "w") as f:
-            for a in filtered_annotations[str(image["id"])]:
-                bbox = a["bbox"]
-                percent_bbox = [x / width if i in [0, 2] else x / height for i, x in enumerate(bbox)]
-                f.write(str(a["cat_id"]) + " " + ' '.join(map(str, percent_bbox)) + '\n')
+
+            image_id = str(image["id"])
+
+            # check if annotations exist for image
+            if image_id in filtered_annotations:
+                for a in filtered_annotations[image_id]:
+                    bbox = a["bbox"]
+                    percent_bbox = [x / width if i in [0, 2] else x / height for i, x in enumerate(bbox)]
+                    f.write(str(a["cat_id"]) + " " + ' '.join(map(str, percent_bbox)) + '\n')
