@@ -1,0 +1,22 @@
+path: /mnt/c/Users/noaht/Downloads/data/dataset
+train: train/images
+val: val/images
+test: 
+
+# Classes
+names:
+  0: Door
+  1: Electronics
+  2: Fire equipment
+  3: Furniture
+  4: Hot Area
+  5: Microwave
+  6: Oven
+  7: Person
+  8: Signage
+  9: Staircase
+  10: Stove
+  11: Vent
+  12: Water
+  13: Window
+  14: Pipe
